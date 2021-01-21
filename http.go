@@ -7,11 +7,11 @@ import (
 	"strings"
 )
 
-func RandHeaders() http.Header {
+func Headers() http.Header {
 	header := http.Header{}
 
-	header.Set(`accept`, RandAccept())
-	header.Set(`accept-language`, RandAcceptLanguage())
+	header.Set(`accept`, Accept())
+	header.Set(`accept-language`, AcceptLanguage())
 
 	if rand.Intn(1) == 0 {
 		header.Set(`cache-control`, `no-cache`)
@@ -24,12 +24,12 @@ func RandHeaders() http.Header {
 
 	header.Set(`upgrade-insecure-requests`, `1`)
 
-	header.Set(`user-agent`, RandDesktopAgent())
+	header.Set(`user-agent`, DesktopAgent())
 
 	return header
 }
 
-func RandAccept() string {
+func Accept() string {
 	a := []string{
 		`text/html`,
 		`application/xhtml+xml`,
@@ -44,7 +44,7 @@ func RandAccept() string {
 	return strings.Join(a, `,`)
 }
 
-func RandAcceptLanguage() string {
+func AcceptLanguage() string {
 	a := []string{
 		`ru-RU`,
 		`ru;q=` + fmt.Sprintf(`%.1f`, 0.1*float32(1+rand.Intn(8))),
@@ -57,7 +57,7 @@ func RandAcceptLanguage() string {
 	return strings.Join(a, `,`)
 }
 
-func RandDesktopAgent() string {
+func DesktopAgent() string {
 	osList := []string{
 		`Macintosh; Intel Mac OS X 10_1#_#`,
 
@@ -101,7 +101,7 @@ func RandDesktopAgent() string {
 	}
 }
 
-func RandBotAgent() string {
+func BotAgent() string {
 	ua := []string{
 		`Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)`,
 		`Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)`,

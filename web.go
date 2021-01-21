@@ -2,17 +2,17 @@ package fake
 
 import "math/rand"
 
-func RandUTM() (source, medium, campaign string) {
+func UTM() (source, medium, campaign string) {
 	sourceList := []string{`google`, `yandex`, `vk`, `facebook`, `targetmail`, `instagram`, `youtube`, `twitter`}
 	mediumList := []string{`cpc`, `email`, `banner`, `article`, `cpm`, `smm`, `target`, `referral`, `retargeting`}
-	campaignList := []string{`promo`, `discount`, `sale`, RandGuid()}
+	campaignList := []string{`promo`, `discount`, `sale`, Guid()}
 
 	return sourceList[rand.Intn(len(sourceList)-1)],
 		mediumList[rand.Intn(len(mediumList)-1)],
 		campaignList[rand.Intn(len(campaignList)-1)]
 }
 
-func RandReferrer() string {
+func Referrer() string {
 	refs := []string{
 		`https://www.google.com/`,
 		`https://yandex.ru/`,

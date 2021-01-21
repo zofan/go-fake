@@ -2,7 +2,7 @@ package fake
 
 import "math/rand"
 
-func RandString(length int, runes []rune) string {
+func String(length int, runes []rune) string {
 	b := make([]rune, length)
 	for i := range b {
 		b[i] = runes[rand.Intn(len(runes))]
@@ -10,18 +10,18 @@ func RandString(length int, runes []rune) string {
 	return string(b)
 }
 
-func RandAlnumString(length int) string {
-	return RandString(length, []rune(`0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`))
+func AlnumString(length int) string {
+	return String(length, []rune(`0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`))
 }
 
-func RandAlphaString(length int) string {
-	return RandString(length, []rune(`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`))
+func AlphaString(length int) string {
+	return String(length, []rune(`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`))
 }
 
-func RandDigitString(length int) string {
-	return RandString(length, []rune(`0123456789`))
+func DigitString(length int) string {
+	return String(length, []rune(`0123456789`))
 }
 
-func RandHexString(length int) string {
-	return RandString(length, []rune(`0123456789abcdef`))
+func HexString(length int) string {
+	return String(length, []rune(`0123456789abcdef`))
 }

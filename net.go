@@ -2,7 +2,7 @@ package fake
 
 import "fmt"
 
-func RandIP4() string {
+func IP4() string {
 	ex := []int{10, 127, 169, 172, 192, 224, 240}
 
 	return fmt.Sprintf(`%d.%d.%d.%d`,

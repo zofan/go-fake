@@ -1,9 +1,9 @@
 package fake
 
-func RandGuid() string {
-	return RandHexString(8) + `-` +
-		RandHexString(4) + `-` +
-		RandHexString(4) + `-` +
-		RandHexString(4) + `-` +
-		RandHexString(12)
+func Guid() string {
+	return HexString(8) + `-` +
+		HexString(4) + `-` +
+		HexString(4) + `-` +
+		HexString(4) + `-` +
+		HexString(12)
 }
