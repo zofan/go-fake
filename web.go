@@ -13,15 +13,69 @@ func UTM() (source, medium, campaign string) {
 }
 
 func Referrer() string {
+	switch rand.Intn(3) {
+	default:
+		return ReferrerSearch()
+	case 1:
+		return ReferrerShortURL()
+	case 2:
+		return ReferrerSocial()
+	case 3:
+		return ReferrerQuestion()
+	}
+}
+
+func ReferrerSearch() string {
 	refs := []string{
 		`https://www.google.com/`,
 		`https://yandex.ru/`,
 		`https://search.yahoo.com/`,
 		`https://go.mail.ru/`,
 		`https://www.bing.com/`,
-		`https://www.ask.com/`,
 		`https://search.aol.com/`,
-		`http://www.baidu.com/`,
+		`https://www.baidu.com/`,
+	}
+
+	return refs[rand.Intn(len(refs)-1)]
+}
+
+func ReferrerShortURL() string {
+	refs := []string{
+		`https://bit.ly/`,
+		`https://bit.do/`,
+		`https://clck.ru/`,
+		`https://tinyurl.com/`,
+		`https://to.click/`,
+		`https://u.to/`,
+		`https://vk.cc/`,
+	}
+
+	return refs[rand.Intn(len(refs)-1)]
+}
+
+func ReferrerSocial() string {
+	refs := []string{
+		`https://www.facebook.com/`,
+		`https://ok.ru/`,
+		`https://vk.com/`,
+		`https://www.instagram.com/`,
+		`https://twitter.com/`,
+		`https://www.pinterest.ru/`,
+		`https://www.reddit.com/`,
+		`https://www.tumblr.com/`,
+		`https://www.flickr.com/`,
+	}
+
+	return refs[rand.Intn(len(refs)-1)]
+}
+
+func ReferrerQuestion() string {
+	refs := []string{
+		`https://ask.fm/`,
+		`https://yandex.ru/q/`,
+		`http://vorum.ru/`,
+		`https://qna.habr.com/`,
+		`https://stackoverflow.com/`,
 	}
 
 	return refs[rand.Intn(len(refs)-1)]
